@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMIT1530-Cheat-Sheet</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main>
+        <section class="max-width-containers">
+            <h2>Max width containers</h2>
+            <p>max-width is used to set the maximum width of an object incase the HTML page increases, min-width sets the minimum width of the object, this section has a max-width of 1000px and a min-width of 300px</p>
+        </section>
+        <section class="relative-units">
+            <h2>Relative units</h2>
+            <p>Relative units define lengths and sizes in relation to other elements offering flexibility and responsiveness in web design, there are 4 main relative units that we will need to know: em, rem, vw, and vh</p>
+            <div class="em-demo">
+                <h3>em</h3>
+                <p>em is relative to the font-size of the element itself, it's relative to the parent elements font-size, the h3 of this div is set to a font-size of 1.5em meaning it's 1.5 times the original h3 font size</p>
+            </div>
+            <div class="rem-demo">
+                <h3>rem</h3>
+                <p>rem is "relative to the root element" meaning it's set to the default font-size of the html element, by default it's 16px so if it's not specified 1rem = 16px, we will be using rem a lot in this course. The font-size of the h3 of this div is set to 1.5rem meaning it's 1.5 times the html font size</p>
+            </div>
+            <div class="vw-demo">
+                <h3>vh</h3>
+                <p>vh is "viewport height" which refers to the visible area of a web page in a percentage-based calculation based off the current height of the browser, if the viewport is 1000 pixels high, 1vh would be 10 pixels, and 100vh would be 1000 pixels, filling the entire viewport height </p>
+                <div class="ten-vh">
+                    <h4>10vh</h4>
+                </div>
+                <div class="thirty-vh">
+                    <h4>30vh</h4>
+                </div>
+            </div>
+            <div class="vw-demo">
+                <h3>vw</h3>
+                <p>vw is "viewport width" which refers to the visible area of a web bage in a percentage-based calculation based off the current width of the browser, if the viewport is 1200 pixels wide, 1vw would be 12 pixels, and 10vw would be 120 pixels.</p>
+                <div class="thirty-vw">
+                    <h4>30vw</h4>
+                </div>
+                <div class="seventy-vw">
+                    <h4>70vw</h4>
+                </div>
+            </div>
+        </section>
+        <section class="targeting">
+            <h2>Targeting</h2>
+            <p>Targeting allows us to target types, children and/or patterns for styling, there are many different ways to target objects: :first-of-type :last-of-type :nth-of-type() :not and many more. For this example, here is a template that will be copied for demonstrations</p>
+
+            <div class="targeting-demo">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h3>:first-of-type</h3>
+            <p>:first-of-type targets the very first element, note that this will target the first *child* of every parent element, so every x.1 will be targetted</p>
+
+            <div class="targeting-first">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h3>:last-of-type</h3>
+            <p>:last-of-type targets the last element, note that this will target the last *child* of every parent element, so 1.2, 2.3 and 3.3 will be targetted since they are the last child of their respective parent</p>
+
+            <div class="targeting-last">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h3>:nth-of-type</h3>
+            <p>:nth-of-type targets the specified child in the number, note that this will target the numbered *child* of every parent element, the target will be :nth-of-type(2) so 1.2, 2.2 and 3.2 will be targeted</p>
+
+            <div class="targeting-nth">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h3>:not</h3>
+            <p>:not excludes targets specified, in this example the target will be :not(:last-of-type) so every other element will be targeted</p>
+
+            <div class="targeting-not">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h2>Specific targets</h2>
+            <p>What if we want to target something specific within the parents? We use a child combinator (&gt;) to do so, this will target the anything that fulfills the criteria</p>
+
+            
+
+            <h3>Targeting the first divs</h3>
+            <p>css is "class &gt; div:first-of-type" </p>
+
+            <div class="targeting-combinator-first">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h3>Targeting the second div within div</h3>
+            <p>css is "class &gt; div &gt; div:nth-of-type(2)"</p>
+
+            <div class="targeting-combinator-second-within-second">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h3>Targeting the last div within div within div</h3>
+            <p>css is "class &gt; div &gt; div &gt; div:last-of-type"</p>
+
+            <div class="targeting-combinator-last-within-last">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+            
+            <h2>Using *</h2>
+            <p>* is a universal selector as it will select everything specified regardless of the tag name</p>
+
+            <h3>Universal</h3>
+            <p>css is "div.class *"</p>
+
+            <div class="targeting-combinator-universal">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h3>Child combinator</h3>
+            <p>css is "div.class &gt; *" note that using &gt; will target everything of the child, but nothing within that child</p>
+
+            <div class="targeting-combinator-child-combinator">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h3>Child combinator within</h3>
+            <p>css is "div.class * &gt; div" phrasing it like this will make sure that everything within the first div is targeted, writing the div first will also target the p tags, so write it this way</p>
+
+            <div class="targeting-combinator-child-within">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+
+            <h3>Child combinator within but not furthur</h3>
+            <p>css is "div.class *:not(div &gt; div &gt; *) &gt; div" it looks messy, but ensures that it's properly excluding 3.1, 3.2, and 3.3</p>
+
+            <div class="targeting-combinator-child-within-but-not-furthur">
+                <div>
+                    <p>1.1</p>
+                    <div>
+                        <p>2.1</p>
+                    </div>
+                    <div>
+                        <p>2.2</p>
+                        <div>
+                            <p>3.1</p>
+                        </div>
+                        <div>
+                            <p>3.2</p>
+                        </div>
+                        <div>
+                            <p>3.3</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>2.3</p>
+                    </div>
+                </div>
+                <div>
+                    <p>1.2</p>
+                </div>
+            </div>
+        </section>
+        <section class="fluid-design">
+            <section>
+                <h2>Fluid design</h2>
+                <p>Fluid design uses the calc function to determine width of objects in a web page that changes in width, hence "fluid" design, first you put the entirity, this utilizes the following formula: <br><br>width: calc((X - Y) / Z) <br><br>Where: <br><br>- X is the percentage of the max-width you want the design to take up <br>- Y is the gap count in rem <br>- Z is the size of the object in relation to other objects in the same row <br><br><br>This section itself just has it's width as 100% since there's nothing else in this row, also note that the entire thing is flexed</p>
+            </section>
+            <section>
+                <h3>Second Row</h3>
+                <p>width: calc((100% - 1rem) / 2);</p>
+            </section>
+            <section>
+                <h3>Second Row</h3>
+                <p>width: calc((100% - 1rem) / 2);</p>
+            </section>
+            <section>
+                <h3>Third Row</h3>
+                <p>width: calc((100% - 2rem) / 3);</p>
+            </section>
+            <section>
+                <h3>Third Row</h3>
+                <p>width: calc((100% - 2rem) / 3);</p>
+            </section>
+            <section>
+                <h3>Third Row</h3>
+                <p>width: calc((100% - 2rem) / 3);</p>
+            </section>
+            <section>
+                <h3>Fourth Row</h3>
+                <p>width: calc((100% - 4rem) / 5);</p>
+            </section>
+            <section>
+                <h3>Fourth Row</h3>
+                <p>width: calc((100% - 4rem) / 5);</p>
+            </section>
+            <section>
+                <h3>Fourth Row</h3>
+                <p>width: calc((100% - 4rem) / 5);</p>
+            </section>
+            <section>
+                <h3>Fourth Row</h3>
+                <p>width: calc((100% - 4rem) / 5);</p>
+            </section>
+            <section>
+                <h3>Fourth Row</h3>
+                <p>width: calc((100% - 4rem) / 5);</p>
+            </section>
+            <section>
+                <h3>Fifth Row</h3>
+                <p>width: calc((100% - 1rem) / 3);</p>
+            </section>
+            <section>
+                <h3>Fifth Row</h3>
+                <p>width: calc(2 * (100% - 1rem) / 3);</p>
+            </section>
+            <section>
+                <h3>Sixth Row</h3>
+                <p>width: calc((100% - 2rem) / 2);</p>
+            </section>
+            <section>
+                <h3>Sixth Row</h3>
+                <p>width: calc((100% - 2rem) / 4);</p>
+            </section>
+            <section>
+                <h3>Sixth Row</h3>
+                <p>width: calc((100% - 2rem) / 4);</p>
+            </section>
+        </section>
+        <section class="media-queries">
+            <section>
+                <h2>Media Queries</h2>
+                <p>Media queries are used to adjust differing variables depending on the size of the browser, which is useful for when people view this on either a phone, tablet or computer.<br><br>Media queries begin by typing @media (min-width:px) {} and putting stuff within that will take effect once the min-width is used, you start with the smallest display and work your way up<br><br>The following below changes depending on the browser width.</p>
+            </section>
+            <section class="media-queries-flex">
+                <div>Blue</div>
+                <div>Red</div>
+                <div>Green</div>
+                <div>Yellow</div>
+            </section>
+            <p>The following below changes orders around</p>
+            <section class="media-queries-flex-second">
+                <div>Blue</div>
+                <div>Red</div>
+                <div>Green</div>
+                <div>Yellow</div>
+            </section>
+            <p>Here is one with boxes inside boxes</p>
+            <section class="media-queries-boxes-within">
+                <div>
+                    Box 1.0
+                    <div>Box 1.1</div>
+                    <div>Box 1.2</div>
+                </div>
+                <div>
+                    Box 2.0
+                    <div>Box 2.1</div>
+                    <div>Box 2.2</div>
+                </div>
+            </section>
+        </section>
+        <section class="shorthand">
+            <section>
+                <h2>Flexbox shorthand</h2>
+                <p>There are 3 properties to write flexbox in shorthand form: flex-basis flex-grow flex-shrink, note that there is no width, and the only flex property in the css is "display: flex;" when starting</p>
+                <p>For the demonstrations, the following below will be a template</p>
+            </section>
+            <div class="shorthand-demo">
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta a perspiciatis nobis inventore unde? Nesciunt quo, esse pariatur est a eligendi quis consequatur at quaerat, expedita, harum maiores molestias magni.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad ullam ex! Quam nostrum nemo autem similique necessitatibus quis sed odit dolore ea, cumque aperiam, consequuntur maxime magni consectetur officia.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate esse, nisi maiores quam deleniti rem quisquam, est possimus laboriosam velit quod, minus earum eligendi natus! Expedita quas dicta impedit eos?</p>
+                </div>
+            </div>
+            <p>flex-basis overides any "width" property and sets the initial length of flex items</p>
+            <div class="shorthand-basis">
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta a perspiciatis nobis inventore unde? Nesciunt quo, esse pariatur est a eligendi quis consequatur at quaerat, expedita, harum maiores molestias magni.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad ullam ex! Quam nostrum nemo autem similique necessitatibus quis sed odit dolore ea, cumque aperiam, consequuntur maxime magni consectetur officia.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate esse, nisi maiores quam deleniti rem quisquam, est possimus laboriosam velit quod, minus earum eligendi natus! Expedita quas dicta impedit eos?</p>
+                </div>
+            </div>
+            <p>flex-grow allows you to set the rate of which items grow, this will only work if you have flex-basis set</p>
+            <div class="shorthand-grow">
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta a perspiciatis nobis inventore unde? Nesciunt quo, esse pariatur est a eligendi quis consequatur at quaerat, expedita, harum maiores molestias magni.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad ullam ex! Quam nostrum nemo autem similique necessitatibus quis sed odit dolore ea, cumque aperiam, consequuntur maxime magni consectetur officia.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate esse, nisi maiores quam deleniti rem quisquam, est possimus laboriosam velit quod, minus earum eligendi natus! Expedita quas dicta impedit eos?</p>
+                </div>
+            </div>
+            <p>flex-shrink allows you to set the rate of which items shrink, this will only work if you have flex-basis set</p>
+            <div class="shorthand-shrink">
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta a perspiciatis nobis inventore unde? Nesciunt quo, esse pariatur est a eligendi quis consequatur at quaerat, expedita, harum maiores molestias magni.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad ullam ex! Quam nostrum nemo autem similique necessitatibus quis sed odit dolore ea, cumque aperiam, consequuntur maxime magni consectetur officia.</p>
+                </div>
+                <div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate esse, nisi maiores quam deleniti rem quisquam, est possimus laboriosam velit quod, minus earum eligendi natus! Expedita quas dicta impedit eos?</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

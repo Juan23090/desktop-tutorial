@@ -1,0 +1,395 @@
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+div {
+    padding: 16px;
+}
+
+/** =========================== Max width containers ===================== **/
+
+section {
+    max-width: 1000px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.max-width-containers {
+    background-color: skyblue;
+}
+
+/** =========================== Relative units ===================== **/
+
+.relative-units {
+    background-color:lime;
+}
+
+.em-demo {
+    background-color: lightcoral;
+}
+
+.em-demo h3 {
+    font-size: 1.5em;
+}
+
+.rem-demo {
+    background-color: gray;
+}
+
+.em-demo h3 {
+    font-size: 1.5rem;
+}
+
+.vw-demo {
+    background-color:yellow;
+}
+
+.ten-vh {
+    height: 10vh;
+    background-color: plum;
+}
+
+.thirty-vh {
+    height: 30vh;
+    background-color: brown;
+}
+.thirty-vw {
+    width: 30vw;
+    background-color: plum;
+}
+
+.seventy-vw {
+    width: 70vw;
+    background-color: brown;
+}
+
+/** =========================== Targeting ====================== **/
+
+.targeting {
+    background-color:cyan;
+}
+
+.targeting div {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 1px solid black;
+    background-color: lightgreen;
+}
+
+.targeting-first div:first-of-type {
+    background-color: yellow;
+}
+
+.targeting-last div:last-of-type {
+    background-color: yellow;
+}
+
+.targeting-nth div:nth-of-type(2) {
+    background-color: yellow;
+}
+
+.targeting-not div:not(:last-of-type) {
+    background-color: yellow;
+}
+
+.targeting-combinator-first > div:first-of-type {
+    background-color: yellow;
+}
+
+.targeting-combinator-second-within-second > div > div:nth-of-type(2) {
+    background-color: yellow;
+}
+
+.targeting-combinator-last-within-last > div > div > div:last-of-type {
+    background-color: yellow;
+}
+
+div.targeting-combinator-universal * {
+    background-color: yellow;
+}
+
+div.targeting-combinator-child-combinator > * {
+    background-color: yellow;
+}
+
+div.targeting-combinator-child-within * > div {
+    background-color: yellow;
+}
+
+div.targeting-combinator-child-within-but-not-furthur *:not(div > div > *) > div {
+    background-color: yellow;
+}
+
+/** =========================== Fluid design ===================== **/
+
+.fluid-design {
+    background-color: orange;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fluid-design section {
+    min-width: 0;
+    background-color: burlywood;
+    padding: 0.75rem;
+}
+
+.fluid-design section:first-of-type {
+    width: 100%;
+}
+
+.fluid-design section:nth-of-type(2),
+.fluid-design section:nth-of-type(3) {
+    background-color: violet;
+    width: calc((100% - 1rem) / 2);
+}
+
+.fluid-design section:nth-of-type(4),
+.fluid-design section:nth-of-type(5),
+.fluid-design section:nth-of-type(6) {
+    width: calc((100% - 2rem) / 3);
+    background-color: coral;
+}
+
+.fluid-design section:nth-of-type(7),
+.fluid-design section:nth-of-type(8),
+.fluid-design section:nth-of-type(9),
+.fluid-design section:nth-of-type(10),
+.fluid-design section:nth-of-type(11) {
+    width: calc((100% - 4rem) / 5);
+    background-color: yellow;
+}
+
+
+.fluid-design section:nth-of-type(12) {
+    width: calc((100% - 1rem) / 3);
+    background-color: skyblue;
+}
+
+.fluid-design section:nth-of-type(13) {
+    width: calc(2 * (100% - 1rem) / 3);
+    background-color: skyblue;
+}
+
+.fluid-design section:nth-last-of-type(2),
+.fluid-design section:last-of-type {
+    width: calc((100% - 2rem) / 4);
+    background-color: darkmagenta;
+}
+
+.fluid-design section:nth-last-of-type(3) {
+    width: calc((100% - 2rem) / 2);
+    background-color: green;
+}
+
+/** =========================== Media Queries ===================== **/
+
+.media-queries {
+    background-color: pink;
+}
+
+.media-queries div:nth-of-type(1) {
+    background-color: blue;
+}
+
+.media-queries div:nth-of-type(2) {
+    background-color: red;
+}
+
+.media-queries div:nth-of-type(3) {
+    background-color: green;
+}
+
+.media-queries div:nth-of-type(4) {
+    background-color: yellow;
+}
+
+.media-queries .media-queries-flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+}
+
+.media-queries div {
+    width: 100%;
+}
+
+@media(min-width: 650px) {
+    .media-queries .media-queries-flex {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .media-queries .media-queries-flex div {
+        width: calc((100% - 1rem) / 2);
+    }
+}
+
+@media(min-width: 1000px) {
+    .media-queries .media-queries-flex div {
+        width: calc((100% - 3rem) / 4);
+    }
+}
+
+.media-queries .media-queries-flex-second {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+}
+
+@media(min-width: 650px) {
+    .media-queries .media-queries-flex-second {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .media-queries .media-queries-flex-second div {
+        width: calc((100% - 1rem) / 2);
+    }
+
+    .media-queries .media-queries-flex-second div:first-of-type{
+        order: 5;
+    }
+}
+
+@media(min-width: 1000px) {
+    .media-queries .media-queries-flex-second div {
+        width: calc((100% - 3rem) / 4);
+    }
+    
+    .media-queries .media-queries-flex-second div:last-of-type{
+        order: -1;
+    }
+}
+
+.media-queries-boxes-within > div:nth-of-type(1){
+    background-color: green;
+}
+
+.media-queries-boxes-within > div:nth-of-type(2){
+    background-color: yellow;
+}
+
+.media-queries-boxes-within {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+
+@media(min-width: 650px) {
+    .media-queries-boxes-within > div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 1rem;
+    }
+}
+
+@media(min-width: 1000px) {
+    .media-queries-boxes-within {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .media-queries-boxes-within > div > div:first-of-type {
+        order: -1;
+    }
+}
+
+/** =========================== Shorthand ===================== **/
+
+.shorthand {
+    background-color: teal;
+}
+
+.shorthand > div {
+    display: flex;
+}
+
+.shorthand > div > div {
+    margin: 0 auto;
+}
+
+.shorthand > div > div:first-of-type {
+    background-color: blue;
+}
+
+.shorthand > div > div:nth-of-type(2) {
+    background-color: green;
+}
+
+.shorthand > div > div:last-of-type {
+    background-color: red;
+}
+
+.shorthand-basis div:first-of-type {
+    flex-basis: 100px;
+}
+
+.shorthand-basis div:nth-of-type(2) {
+    flex-basis: 300px;
+}
+
+.shorthand-basis div:last-of-type {
+    flex-basis: 250px;
+}
+
+.shorthand-grow div:first-of-type {
+    flex-basis: 200px;
+    flex-grow: 4;
+}
+
+.shorthand-grow div:nth-of-type(2) {
+    flex-basis: 200px;
+    flex-grow: 1;
+}
+
+.shorthand-grow div:last-of-type {
+    flex-basis: 200px;
+    flex-grow: 0;
+}
+
+.shorthand-shrink div:first-of-type {
+    flex-basis: 300px;
+    flex-shrink: 4;
+}
+
+.shorthand-shrink div:nth-of-type(2) {
+    flex-basis: 300px;
+    flex-shrink: 1;
+}
+
+.shorthand-shrink div:last-of-type {
+    flex-basis: 300px;
+    flex-shrink: 0;
+}
